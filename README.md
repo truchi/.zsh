@@ -34,3 +34,4 @@ https://github.com/tldr-pages/tldr/ AND https://tldr.ostera.io/
 
 - compinstall -> configure zsh completion system
 - zsh highlight plugins (url, filetypes) not working
+- [Fira Code](https://github.com/tonsky/FiraCode) -> as iTerm 3.1 (beta) (and others) supports ligatures!
