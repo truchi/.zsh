@@ -32,6 +32,5 @@ https://github.com/tldr-pages/tldr/ AND https://tldr.ostera.io/
 
 # TODO
 
-- zshcr -> will symlink work over git?
 - compinstall -> configure zsh completion system
 - zsh highlight plugins (url, filetypes) not working
