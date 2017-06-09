@@ -28,7 +28,9 @@ Some dependencies requires symlinks, therefore `deps/symlinks` (also in `preinst
 # Not in here but cool enough
 
 iTerm2-Color-Schemes  
-https://github.com/tldr-pages/tldr/ AND https://tldr.ostera.io/
+https://github.com/tldr-pages/tldr/ AND https://tldr.ostera.io/  
+Remove 'Last Login' message from terminal: `touch ~/.hushlogin`! (macOS only?)
+
 
 # TODO
 
