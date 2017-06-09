@@ -1,5 +1,6 @@
 deps/*
 !deps/clone_or_pull
+!deps/symlinks
 
 node_modules/
 .DS_Store

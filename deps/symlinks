@@ -1,0 +1,45 @@
+#!/usr/bin/env zsh
+
+# Dependencies directory
+DEPS_DIR="$HOME/.zsh/deps"
+# Prompt symlinks directory
+PROMPT_DIR=/usr/local/share/zsh/site-functions # NOTE must be in FPATH
+
+# Output colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No colors
+
+echo -e $RED
+echo "*** *** *** *** *** ***"
+echo "~- -~ ~- -~ ~- -~ ~- -~"
+echo "    Symlinks"
+echo "~- -~ ~- -~ ~- -~ ~- -~"
+echo "*** *** *** *** *** ***"
+echo -e $NC
+
+# Pure prompt requires those 2 symlinks in FPATH
+if [[ ! -e $PROMPT_DIR/prompt_pure_setup ]]
+then
+  echo -e $BLUE
+  echo "Writing symlink: $PROMPT_DIR/prompt_pure_setup -> $DEPS_DIR/pure/pure.zsh"
+  echo -e $NC
+  ln -s "$DEPS_DIR/pure/pure.zsh" "$PROMPT_DIR/prompt_pure_setup"
+else
+  echo -e $GREEN
+  echo "Already exists: $PROMPT_DIR/prompt_pure_setup"
+  echo -e $NC
+fi
+
+if [[ ! -e $PROMPT_DIR/async ]]
+then
+  echo -e $BLUE
+  echo "Writing symlink: $PROMPT_DIR/async -> $DEPS_DIR/pure/async.zsh"
+  echo -e $NC
+  ln -s "$DEPS_DIR/pure/async.zsh" "$PROMPT_DIR/async"
+else
+  echo -e $GREEN
+  echo "Already exists: $PROMPT_DIR/async"
+  echo -e $NC
+fi
