@@ -1,0 +1,14 @@
+{
+  "name": "dotzsh",
+  "version": "1.0.0",
+  "description": "Zsh files",
+  "main": "zshrc",
+  "scripts": {
+    "preinstall": "deps/clone_or_pull && deps/symlinks"
+  },
+  "keywords": [
+    "zsh"
+  ],
+  "author": "Romain TRUCHI",
+  "license": "ISC"
+}

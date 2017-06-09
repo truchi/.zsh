@@ -1,0 +1,74 @@
+#!/usr/bin/env zsh
+
+# Dependencies directory
+DEPS_DIR="$HOME/.zsh/deps/"
+
+# Repositories to clone
+REPOS=(
+  # Prompts
+  sindresorhus/pure           # Simple and cool
+  bhilburn/powerlevel9k       # Complex and cool
+
+  # Zsh-users repos
+  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-completions
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-syntax-highlighting
+
+  # Addons and deps for zsh-users repos
+  trapd00r/LS_COLORS
+  trapd00r/zsh-syntax-highlighting-filetypes
+  ascii-soup/zsh-url-highlighter
+
+  # Utils
+  b4b4r07/enhancd             # Enhanced cd
+  akoenig/gulp.plugin.zsh     # Gulp completions
+  molovo/tipz                 # Alias tips
+  lukechilds/zsh-better-npm-completion # ...
+  miked0004/zsh-google-lucky  # Google's feeling lucky
+  psprint/zsh-morpho          # Screen saver
+)
+
+# Output colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No colors
+
+# Go to dependencies directory
+cd $DEPS_DIR
+
+# Clone all repositories
+for REPO in $REPOS
+do
+  # Last part of repo string: repo name, aka folder name
+  NAME=${${(s:/:)REPO}[2]}
+
+  echo -e $RED
+  echo "*** *** *** *** *** ***"
+  echo "~- -~ ~- -~ ~- -~ ~- -~"
+  echo "    $NAME"
+  echo "~- -~ ~- -~ ~- -~ ~- -~"
+  echo "*** *** *** *** *** ***"
+  echo -e $NC
+
+  # Clone
+  echo -e $GREEN
+  echo "<~><~><~><~>"
+  echo "~~> Cloning"
+  echo "<~><~><~><~>"
+  echo -e $NC
+  git clone https://github.com/$REPO.git
+
+  # If "fatal: destination path 'path' already exists and is not an empty directory."
+  if [[ $? == 128 ]]
+  then
+    # Pull
+    echo -e $BLUE
+    echo "<~><~><~><~><~><~><~>"
+    echo "~~> Pulling then...!"
+    echo "<~><~><~><~><~><~><~>"
+    echo -e $NC
+    (cd $NAME && git pull)
+  fi
+done
